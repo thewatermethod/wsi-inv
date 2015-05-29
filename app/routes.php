@@ -15,3 +15,21 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('orders', function(){
+
+	$params = array( 
+		'filter' => array( 
+			array( 'key' => 'status', 'value' => 'pending')
+		)
+	);
+
+	$orders = Magento::salesOrderList($params)->getCollection();
+
+	//echo $orders->getFunctions();
+
+	//var_dump($orders);
+
+	return View::make('orders')->with( 'orders' , $orders );	
+
+});
