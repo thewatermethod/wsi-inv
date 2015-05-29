@@ -5,9 +5,9 @@
 	<ul>
 	
 	@foreach( $orders as $order )
-		@foreach( $order->items() as $item )
-			
-		@endforeach
+
+		<li> {{ $order->getShippingName() }} - {{ $order->getGrandTotal() }} </li>
+
 	@endforeach
 
 	</ul>

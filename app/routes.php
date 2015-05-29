@@ -16,7 +16,10 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('orders', function(){
+Route::get('orders', 'OrdersController@getIndex');
+
+/***********
+Route::get('orders', function() {
 
 	$params = array( 
 		'filter' => array( 
@@ -26,10 +29,7 @@ Route::get('orders', function(){
 
 	$orders = Magento::salesOrderList($params)->getCollection();
 
-	//echo $orders->getFunctions();
 
-	//var_dump($orders);
-
-	return View::make('orders')->with( 'orders' , $orders );	
-
+	echo Magento::salesOrderList($params)->getFunctions();;
 });
+***********/
